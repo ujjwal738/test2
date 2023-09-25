@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+    <style>
+
+        #placement{
+            margin-top: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <center id="placement">
+
+        <h1>
+            js task 3
+        </h1>
+    <table id="gap">
+        <tr>
+            <td>Enter the first number:</td>
+            <td><input type="number" id="num1"></td>
+        </tr>
+        <tr>
+            <td>Enter the second number:</td>
+            <td><input type="number" id="num2"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="multiplyNumbers()">Multiply</button>
+                <button onclick="divideNumbers()">Divide</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Result:</td>
+            <td><span id="result"></span></td>
+        </tr>
+    </table>
+
+    </center>
+
+    <script>
+        function multiplyNumbers() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const result = num1 * num2;
+            document.getElementById("result").textContent = result;
+        }
+
+        function divideNumbers() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            if (num2 !== 0) {
+                const result = num1 / num2;
+                document.getElementById("result").textContent = result;
+            } else {
+                document.getElementById("result").textContent = "Cannot divide by zero";
+            }
+        }
+    </script>
+</body>
+</html>

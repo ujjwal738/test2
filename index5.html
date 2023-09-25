@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+
+        #forms{
+
+            margin-top: 100px;
+        
+        }
+        table {
+
+            background-color: rgb(206, 206, 206);
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 20px;
+
+            padding-left: 30px;
+
+            padding-right: 30px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .error-border {
+            border: 2px solid yellow;
+        }
+
+        .warning-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="forms">
+    
+    <form id="contactForm" action="#" method="post">
+        <table>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="firstname"></td>
+                <td class="warning-message" id="firstnameWarning"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lastname"></td>
+                <td class="warning-message" id="lastnameWarning"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email"></td>
+                <td class="warning-message" id="emailWarning"></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input type="tel" name="phone"></td>
+                <td class="warning-message" id="phoneWarning"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address"></td>
+                <td class="warning-message" id="addressWarning"></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city"></td>
+                <td class="warning-message" id="cityWarning"></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td><input type="text" name="state"></td>
+                <td class="warning-message" id="stateWarning"></td>
+            </tr>
+            <tr>
+                <td>Do you have hosting:</td>
+                <td>
+                    <label><input type="radio" name="hosting" value="Yes"> Yes</label>
+                    <label><input type="radio" name="hosting" value="No"> No</label>
+                </td>
+                <td class="warning-message" id="hostingWarning"></td>
+            </tr>
+            <tr>
+                <td>Project Description:</td>
+                <td><textarea name="description" rows="4"></textarea></td>
+                <td class="warning-message" id="descriptionWarning"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Send">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            const inputs = this.querySelectorAll("input[type='text'], input[type='email'], input[type='tel'], textarea");
+            let hasError = false;
+
+            for (const input of inputs) {
+                const warningMessage = document.getElementById(input.name + "Warning");
+
+                if (!input.value.trim()) {
+                    input.classList.add("error-border");
+                    warningMessage.textContent = "This field is required.";
+                    warningMessage.style.display = "block";
+                    hasError = true;
+                } else {
+                    input.classList.remove("error-border");
+                    warningMessage.style.display = "none";
+                }
+            }
+
+            if (hasError) {
+                event.preventDefault();
+               
+            }
+        });
+    </script>
+</body>
+</html>

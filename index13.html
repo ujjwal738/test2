@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Control</title>
+</head>
+<body>
+    <div>
+        <video id="animationVideo" width="400" height="300" controls>
+            <source src="https://www.youtube.com/watch?v=v4W3smxDjX8&t=2s&ab_channel=FumikiriWorld" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div>
+        <button id="startButton" onclick="startAnimation()">Start</button>
+        <button id="stopButton" onclick="stopAnimation()" disabled>Stop</button>
+    </div>
+
+    <script>
+        const animationVideo = document.getElementById('animationVideo');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+
+        function startAnimation() {
+            animationVideo.play();
+            startButton.disabled = true;
+            stopButton.disabled = false;
+        }
+
+        function stopAnimation() {
+            animationVideo.pause();
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        }
+    </script>
+</body>
+</html>

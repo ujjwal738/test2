@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time Display</title>
+
+    <style>
+
+        #placement{
+
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+  
+  <center id="placement">
+
+    <h1>
+        js task 4
+    </h1>
+    
+    <table>
+        <tr>
+            <td><button onclick="showDate()">Show Date</button></td>
+        </tr>
+      <tr>
+            <td id="display"></td>
+        </tr>
+        <tr>
+            <td><button onclick="showTime()">Show Time</button></td>
+        </tr>
+        <tr>
+            <td id="time"></td>
+        </tr>
+    </table>
+    
+    </centre>
+
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = currentDate.toLocaleDateString(undefined, options);
+            document.getElementById("display").textContent = `Current Date: ${formattedDate}`;
+        }
+
+        function showTime() {
+            const currentTime = new Date();
+            const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            const formattedTime = currentTime.toLocaleTimeString(undefined, options);
+            document.getElementById("time").textContent = `Current Time: ${formattedTime}`;
+        }
+    </script>
+</body>
+</html>
